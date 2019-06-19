@@ -1,54 +1,42 @@
 {
-  "name": "material-dashboard-dark",
-  "version": "2.1.0",
-  "description": "Material Dasboard Dark Edition, a Google Material Desgin. Coded by Creative Tim",
-  "main": "index.html",
-  "directories": {
-    "doc": "docs"
-  },
+  "name": "vue-black-dashboard",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A sample admin dashboard based on black dashboard UI template",
+  "author": "cristian.jora <joracristi@gmail.com>",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "serve": "vue-cli-service serve --open",
+    "build": "vue-cli-service build",
+    "e2e": "node test/e2e/runner.js",
+    "lint": "vue-cli-service lint",
+    "dev": "vue-cli-service serve --open",
+    "lint-fix": "vue-cli-service lint --fix"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/creativetimofficial/material-dashboard.git"
-  },
-  "keywords": [
-    "material dashboard",
-    "bootstrap material admin",
-    "bootstrap material dashboard",
-    "material design admin",
-    "material design",
-    "creative tim",
-    "html dashboard",
-    "html css dashboard",
-    "web dashboard",
-    "freebie",
-    "free bootstrap dashboard",
-    "css3 dashboard",
-    "bootstrap admin",
-    "bootstrap dashboard",
-    "frontend",
-    "responsive bootstrap dashboard"
-  ],
-  "author": "Creative Tim <hello@creative-tim.com> (https://www.creative-tim.com/)",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/creativetimofficial/material-dashboard/issues"
+  "dependencies": {
+    "axios": "^0.19.0",
+    "chart.js": "^2.7.3",
+    "register-service-worker": "^1.5.2",
+    "vue": "^2.6.6",
+    "vue-chartjs": "^3.4.0",
+    "vue-cookies": "^1.5.13",
+    "vue-i18n": "^8.8.1",
+    "vue-router": "^3.0.2",
+    "vue-router-prefetch": "^1.4.0",
+    "vue2-transitions": "^0.2.3"
   },
   "devDependencies": {
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^5.0.0",
-    "gulp-clean": "^0.4.0",
-    "gulp-install": "^1.1.0",
-    "gulp-sass": "^4.0.1",
-    "gulp-sourcemaps": "^2.6.4",
-    "gulp-open": "^3.0.1"
+    "@vue/cli-plugin-babel": "^3.4.0",
+    "@vue/cli-plugin-eslint": "^3.4.0",
+    "@vue/cli-plugin-pwa": "^3.4.0",
+    "@vue/cli-service": "^3.4.0",
+    "node-sass": "^4.11.0",
+    "sass-loader": "^7.1.0",
+    "vue-cli-plugin-i18n": "^0.5.1",
+    "vue-template-compiler": "^2.6.6"
   },
-  "homepage": "http://demos.creative-tim.com/material-dashboard-dark/examples/dashboard.html",
-  "dependencies": {
-    "express": "^4.17.1",
-    "path": "^0.12.7",
-    "stripe": "^7.1.0"
-  }
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 11"
+  ]
 }
