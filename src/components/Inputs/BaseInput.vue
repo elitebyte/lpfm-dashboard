@@ -21,7 +21,7 @@
         v-bind="$attrs"
         v-on="listeners"
         class="form-control"
-             aria-describedby="addon-right addon-left"></input>
+             aria-describedby="addon-right addon-left" :value="value"></input>
     </slot>
     <slot name="addonRight">
       <span v-if="addonRightIcon" class="input-group-append">

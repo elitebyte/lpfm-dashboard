@@ -1,6 +1,8 @@
 <template>
+    
   <nav class="navbar navbar-expand-lg navbar-absolute"
        :class="{'bg-white': showMenu, 'navbar-transparent': !showMenu}">
+    
     <div class="container-fluid">
       <div class="navbar-wrapper">
         <div class="navbar-toggle d-inline" :class="{toggled: $sidebar.showSidebar}">
@@ -26,6 +28,11 @@
         <span class="navbar-toggler-bar navbar-kebab"></span>
       </button>
 
+    <div class="container-fluid">
+
+    </div>
+
+        
       <collapse-transition>
         <div class="collapse navbar-collapse show" v-show="showMenu">
           <ul class="navbar-nav" :class="$rtl.isRTL ? 'mr-auto' : 'ml-auto'">
@@ -133,21 +140,25 @@
           </ul>
         </div>
       </collapse-transition>
+        
     </div>
+      
   </nav>
 </template>
+
 <script>
   import { CollapseTransition } from 'vue2-transitions';
   import Modal from '@/components/Modal';
+  import AudioPlayer from '@/components/CustomComponents/AudioPlayer'
     
   import axios from "axios"    
   import router from "../../router"
-    
 
   export default {
     components: {
       CollapseTransition,
-      Modal
+      Modal,
+      AudioPlayer
     },
     computed: {
       routeName() {
@@ -199,6 +210,9 @@
             console.log("Was not able to add show error: " + errors)
           })
       },
+      audioFinished() {
+        console.log("Audio has finished")  
+      },
       capitalizeFirstLetter(string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
       },
@@ -221,4 +235,14 @@
   };
 </script>
 <style>
+    
+.player-wrapper {
+	align-items: center;
+	background-color: #fff;
+	background-image: linear-gradient(90deg, #fff 0, darken(#fff, 12%));
+	display: flex;
+	justify-content: center;
+	height: 100vh;
+}
+    
 </style>

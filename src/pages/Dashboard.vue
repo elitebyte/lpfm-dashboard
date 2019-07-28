@@ -31,7 +31,7 @@
             .then((response) => {    
                 console.log(response)
                 console.log()
-                self.$set(this, "user", response.data.user)    
+                self.$set(this, "user" , response.data.user)    
             })    
             .catch((errors) => {    
                 console.log(errors)    

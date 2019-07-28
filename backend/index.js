@@ -131,8 +131,15 @@ app.post("/api/addshow", (req, res) => {
     
     database.addShow(req.body)
     
-    res.status(200).send("Ayo we got the data chief")
-    return
+    res.status(200).send("Ayo we got the data chief.")
+})
+
+app.post("/api/updateshow", (req, res) => {
+    console.log("Recieved POST from api/updateshow")
+    
+    database.updateShow(req.body)
+    
+    res.status(200).send("Ayo we got the data to update chief.")
 })
 
 app.get("/api/getshows", (req, res) => {
@@ -143,10 +150,28 @@ app.get("/api/getshows", (req, res) => {
     }).catch((error) => {
         res.status(401).send(error)
     })
-    
-    
 })
 
+app.post("/api/addtrack", (req, res) => {
+    console.log("Recieved POST from api/addtrack")
+    database.addTrack(req.body.showUID, req.body)
+    
+    res.status(200).send("Ayo we sent the track")
+})
+
+app.post("/api/removetrack", (req, res) => {
+    console.log("Received POST from api/removetrack")
+    database.removeTrack(req.body)
+    
+    res.status(200).send("Ayo we removed the track")
+})
+
+app.post("/api/trackplay", (req, res) => {
+    console.log("Received POST from api/trackplay")
+    database.updateTrackPlayCount(req.body)
+    
+    res.status(200).send("Ayo we updated the play count")
+})
 
 app.listen(3000, () => {
   console.log("Example app listening on port 3000")

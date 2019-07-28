@@ -9,15 +9,39 @@ function addShow(show){
 }
 
 function addTrack(showUID, track){
-     
+    console.log("Adding a new track titled: " + track.name)
+    
+    var ref = db.ref('shows').child(showUID).child('tracks').push(track)  
+    
+    console.log("Reference key: " + ref.key)
+    
+    track['trackUID'] = ref.key
+    
+    ref.set(track)
 }
 
-function removeTrack(trackID){
-    
+function removeTrack(trackData){
+    let trackRefString = 'shows/' + trackData.showUID + '/tracks/' + trackDa 
+    ta.trackUID
+    console.log("Removing a track at location: " + trackRefString)
+
+    db.ref(trackRefString).remove()
+        .catch(function(error) {
+        console.log("Failed to add track with error: " + error)
+        })
 }
 
 function removeShow(showUID){
     
+}
+
+function updateShow(show) {
+    console.log("Updating show with UID: " + show.showUID)
+    db.ref('shows').child(show.showUID).update(show).then(function() {
+        console.log("Successfully updated show.")
+    }).catch(function(error) {
+        console.log("Failed to update show with error: " + error)
+    })
 }
 
 function getShows() {
@@ -45,6 +69,21 @@ function getShows() {
     })
 }
 
+function updateTrackPlayCount(trackData) {
+    let trackRefString = 'shows/' + trackData.showUID + '/tracks/' + trackData.trackUID + '/plays'
+    console.log("Updating play count of track at location: " + trackRefString)
+
+    db.ref(trackRefString).once('value')
+        .then(function(dataSnapshot) {
+        db.ref(trackRefString).set(dataSnapshot.val() + 1)
+            .then(function() {
+            console.log("Successfully updated play count.")
+            }).catch(function() {
+            console.log("Failed to update play count.")
+        })
+    })
+}
+
 
 module.exports = {
 
@@ -52,6 +91,9 @@ module.exports = {
     addTrack: addTrack,
     removeTrack: removeTrack,
     remoteShow: removeShow,
-    getShows: getShows
+    updateShow: updateShow,
+    getShows: getShows,
+    removeTrack: removeTrack,
+    updateTrackPlayCount: updateTrackPlayCount
 
 }
